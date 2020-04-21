@@ -30,7 +30,8 @@ lists.convert = function(seconds) {
 };
 
 lists.mysqlConnect = function(connection){
-    connect = connection.connect(function(error){if (error){console.log(error)}});
+    connect = connection.connect(function(error){
+        if (error){console.log(error); lists.mysqlConnect(connection)}});
     if(connect){
         console.log("Mysql server was not connected");
         return true;
