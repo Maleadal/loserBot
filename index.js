@@ -4,10 +4,10 @@ const mysql = require('mysql');
 const Discord = require("discord.js");
 const bot = new Discord.Client();
 const conn = mysql.createConnection({
-    host: 'remotemysql.com',
-    user: '4QQqhvXEHK',
-    password: 'FKa29HXD5c',
-    database: '4QQqhvXEHK'
+    host: 'db4free.net',
+    user: 'losersdomain',
+    password: 'passwordko2',
+    database: 'passwordko2'
 });
 let connect = conn.connect(function(error){
     if(error){
