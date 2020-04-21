@@ -7,7 +7,7 @@ const conn = mysql.createConnection({
     host: 'db4free.net',
     user: 'loserdomain',
     password: '030baed5',
-    database: '030baed5'
+    database: 'losers'
 });
 let connect = conn.connect(function(error){
     if(error){
