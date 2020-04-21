@@ -92,7 +92,7 @@ bot.on("message", async message =>{
                     message.channel.send("Please `!register` before doing this command");
                 }
             });
-            conn.end();
+
             break;
         case commands.register:
             query = "SELECT * FROM loser_list where name = ?";
@@ -148,7 +148,7 @@ bot.on("message", async message =>{
                                 }
                             }
                         });
-                        conn.end();
+                        
                     }
                 })
                 .catch(error => {
