@@ -9,7 +9,17 @@ const conn = mysql.createConnection({
     password: 'FKa29HXD5c',
     database: '4QQqhvXEHK'
 });
-let connect = functions.mysqlConnect(conn);
+let connect = conn.connect(function(error){
+    if(error){
+        console.log(error);
+        console.log("The Mysql Connection was terminated");
+        return false;
+    } else if (!error){
+        console.log("The Mysql Connection was successful");
+        return true;
+    }
+    return false;
+});
 let commands = {
     help: prefix + "help",
     ver: prefix + "ver",
@@ -47,6 +57,10 @@ bot.on("message", async message =>{
                 message.channel.send(errorMessage);
                 break;
             }
+            if(!connect){
+                message.channel.send("The database has been disconnected");
+                break;
+            }
             query = "SELECT * FROM losers where discordName = ?";
             conn.query(query, [message.author.username], function(error, result, fields){
                 if (error){
@@ -79,6 +93,7 @@ bot.on("message", async message =>{
                     message.channel.send("Please `!register` before doing this command");
                 }
             });
+            conn.end();
             break;
         case commands.register:
             query = "SELECT * FROM losers where name = ?";
@@ -134,6 +149,7 @@ bot.on("message", async message =>{
                                 }
                             }
                         });
+                        conn.end();
                     }
                 })
                 .catch(error => {

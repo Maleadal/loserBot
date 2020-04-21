@@ -29,17 +29,7 @@ lists.convert = function(seconds) {
     }
 };
 
-lists.mysqlConnect = function(connection){
-    connect = connection.connect(function(error){
-        if (error){console.log(error); lists.mysqlConnect(connection)}});
-    if(connect){
-        console.log("Mysql server was not connected");
-        return true;
-    } else if (!connect){
-        console.log("Mysql has been connected successfully");
-        return false;
-    }
-};
+
 
 lists.checkChannel = function(channel1, channel2){
     if (channel1 == channel2){
