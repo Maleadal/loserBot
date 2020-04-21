@@ -56,7 +56,7 @@ bot.on("message", async message =>{
                 message.channel.send(errorMessage);
                 break;
             }
-            if(!connect){
+            if(connect){
                 message.channel.send("The database has been disconnected");
                 break;
             }
