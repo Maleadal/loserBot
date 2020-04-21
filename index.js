@@ -60,7 +60,7 @@ bot.on("message", async message =>{
                 message.channel.send("The database has been disconnected");
                 break;
             }
-            query = "SELECT * FROM losers where discordName = ?";
+            query = "SELECT * FROM loser_list where discordName = ?";
             conn.query(query, [message.author.username], function(error, result, fields){
                 if (error){
                     console.log(error);
@@ -95,7 +95,7 @@ bot.on("message", async message =>{
             conn.end();
             break;
         case commands.register:
-            query = "SELECT * FROM losers where name = ?";
+            query = "SELECT * FROM loser_list where name = ?";
             var userName;
             if(!checkChannel){
                 message.channel.bulkDelete(1);
@@ -127,7 +127,7 @@ bot.on("message", async message =>{
                                         }).catch(error => {
                                             Promise.resolve(functions.getUserName(args[1], args[2]))
                                                 .then(value => {
-                                                    query = "INSERT INTO losers(name, id, api_key, discordName) VALUES(?, ?, ?, ?);";
+                                                    query = "INSERT INTO losers_list(name, id, api_key, discordName) VALUES(?, ?, ?, ?);";
                                                         conn.query(query, [value, args[1], args[2], message.author.username], function(error, result, fields){
                                                             if(error){
                                                                 console.log(error);
