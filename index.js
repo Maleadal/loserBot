@@ -6,8 +6,8 @@ const bot = new Discord.Client();
 const conn = mysql.createConnection({
     host: 'db4free.net',
     user: 'loserdomain',
-    password: 'passwordko2',
-    database: 'passwordko2'
+    password: '030baed5',
+    database: '030baed5'
 });
 let connect = conn.connect(function(error){
     if(error){
