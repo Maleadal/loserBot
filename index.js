@@ -5,7 +5,7 @@ const Discord = require("discord.js");
 const bot = new Discord.Client();
 const conn = mysql.createConnection({
     host: 'db4free.net',
-    user: 'losersdomain',
+    user: 'loserdomain',
     password: 'passwordko2',
     database: 'passwordko2'
 });
