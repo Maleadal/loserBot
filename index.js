@@ -18,7 +18,6 @@ let connect = conn.connect(function(error){
         console.log("The Mysql Connection was successful");
         return true;
     }
-    return false;
 });
 let commands = {
     help: prefix + "help",
